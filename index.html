@@ -1,0 +1,213 @@
+<!-- ################################################################################################# -->
+<!-- 
+
+										Open Directory Finder
+		
+
+ -->
+<!-- ################################################################################################# -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ODFinder</title>
+</head>
+<body>
+
+
+<!-- Radio buttons to choose between loose of strict search -->
+<div >
+	<input id="radio" type="radio" name="Search" value="Loose" checked="checked"> Loose Search
+    <input id="radio" type="radio" name="Search" value="Strict"> Strict Search
+</div>
+
+
+<!-- File type select dropdown -->
+<div id="main">
+	<select id="format">
+		<option value="Video">Video</option>
+		<option value="VideoHD">Video HD</option>
+		<option value="Video3D">Video 3D</option>
+
+		<option value="Audio">Audio</option>
+		<option value="Image">Image</option>
+		<option value="Softwares">Softwares|Games</option>
+		<option value="Text">Text</option>
+		<option value="Compressed">Compressed</option>
+
+	</select>
+	<input id="input" type="text" name="input">
+	<button id="go">Go</button>
+</div>
+
+
+
+<!-- JQuery  -->
+<script
+  src="http://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous">
+</script>
+
+
+
+<!-- Main Script -->
+<script type="text/javascript">
+
+	$(document).ready(function(){
+	  $('#go').click(function(){                // on click go button
+	     var query = $('#input').val();			//
+	     query = $.trim(query);					//    Filter
+	     query = query.replace(/  +/g, ' ');	//	   the
+	     query = query.replace(' ','.');		//	  input
+
+	     var search = $('input[name=Search]:checked').val(); // value from the radio 
+	     var format = $("#format").val();                    // file format
+	     var extensions = ''
+
+
+	     switch(format){
+
+	     	// if the file format is video
+	       case("Video"):{
+	       	if(query != ''){	
+	       		if(search == 'Strict'){
+	       	 		query = "intext:\""+query+"\"";
+	       		}
+	       		else{
+	       			query = "intext:"+query;
+	       		}
+	       	}
+	         var extensions=" (avi|mkv|mov|mp4|mpg|wmv|flv) ";  //extensions for a video file
+	         break;
+	       }
+
+	       // if the file format is video and is HD
+	       case("VideoHD"):{
+	       	if(query != ''){	
+	       		if(search == 'Strict'){
+	       			query = "intext:\""+query+".1080p\"";
+	       		}
+	       		else{
+	       	 		query = "intext:"+query+".1080p";
+	       	
+	       		}
+	       	}
+	         var extensions=" (avi|mkv|mp4) "; //extensions for a video file. Reduced as most HD videos come in these formats
+	         break;
+	       }
+
+	       // if the file format is video and is 3d
+	       case("Video3D"):{
+	       	if(query != ''){	
+	       		if(search == 'Strict'){
+	       			query = "intext:\""+query+".sbs\"";
+	       		}
+	       		else{
+	       	 		query = "intext:"+query+".sbs";
+	       		}
+	       	}
+	         var extensions=" (avi|mkv|mp4) "; //extensions for a video file. Reduced as most 3D side by side videos come in these formats
+	         break;
+	       }
+
+	       // if the file format is audio
+	       case("Audio"):{
+	       	if(query != ''){	
+	       		       		if(search == 'Strict'){
+	       		       	 		query = "intext:\""+query+"\"";
+	       		       		}
+	       		       		else{
+	       		       			query = "intext:"+query;
+	       		       		}
+	       		       	}
+	         var extensions=" (mp3|ac3|flac|m4a|wav|wma) "; //extensions for a audio file. 
+	         break;
+	       }
+
+	       // if the file format is Image
+	       case("Image"):{
+	       	if(query != ''){	
+	       		if(search == 'Strict'){
+	       	 		query = "intext:\""+query+"\"";
+	       		}
+	       		else{
+	       			query = "intext:"+query;
+	       		}
+	       	}
+	         var extensions=" (jpg|png|gif|jpeg|psd|bmp|tif|tiff) "; //extensions for an image 
+	         break;
+	       }
+
+	       // if the file format is Text
+	       case("Text"):{
+	       	if(query != ''){	
+	       		if(search == 'Strict'){
+	       	 		query = "intext:\""+query+"\"";
+	       		}
+	       		else{
+	       			query = "intext:"+query;
+	       		}
+	       	}
+	         var extensions=" (CBZ|CBR|CHM|DOC|DOCX|EPUB|MOBI|ODT|PDF|RTF|txt) "; //extensions for a text file
+	         break;
+	       }
+
+	       // if the file format is Software
+	       case("Software"):{
+	       	if(query != ''){	
+	       		if(search == 'Strict'){
+	       	 		query = "intext:\""+query+"\"";
+	       		}
+	       		else{
+	       			query = "intext:"+query;
+	       		}
+	       	}
+	         var extensions=" (apk|exe|iso|rar|tar|zip|deb|msi) "; //extensions for a game or software
+	         break;
+	       }
+
+
+	       // if the file format is compressed
+	       case("Compressed"):{
+	       	if(query != ''){	
+	       		if(search == 'Strict'){
+	       	 		query = "intext:\""+query+"\"";
+	       		}
+	       		else{
+	       			query = "intext:"+query;
+	       		}
+	       	}
+	         var extensions=" (7z|bz2|gz|iso|rar|zip|tar) "; //extensions for an archive file
+	         break;
+	       }
+
+
+	       // Default case (Redundant (can be removed))
+	       default:{
+	       	if(query != ''){	
+	       		if(search == 'Strict'){
+	       	 		query = "intext:\""+query+"\"";
+	       		}
+	       		else{
+	       			query = "intext:"+query;
+	       		}
+	       	}
+	         var extensions=" (avi|mkv|mov|mp4|mpg|wmv|flv) "; //extensions for a video file
+	         break;
+	       }
+	     }
+
+		     var commonToAll=" intitle:\"index.of./\" -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml|py) -inurl:(index_of|wp-content|listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis) ";          // Commmon string to all queries
+
+	         var finalquery=query+extensions+commonToAll;
+	         finalquery = $.trim(finalquery)
+	         var url="https://www.google.com/search?q="+encodeURIComponent(finalquery);                 // The final url whiich will find open directories
+	         window.open(url,'_blank');                                                                 // This statement will open url in new tab
+
+	  });
+	});
+</script>
+
+</body>
+</html>
+
