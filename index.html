@@ -1,118 +1,307 @@
-<!-- ################################################################################################# -->
-<!-- 
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Open Directory Finder</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+ 
+    <title>OD Finder</title>
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+ 
 
-										Open Directory Finder
-		
+<style type="text/css">
+	body{
+        font-family: 'Press Start 2P', cursive;
+        background-color: rgba(99, 99, 99, 0.1);
+		color: #1A1A1A;
+        
+	}
+    h1{
+        font-size: 4vw;
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    #radio{
+        padding-top: 40px;
+        margin:0 auto;
+        text-align:center;
+        font-size: small;
+    }
+	.form-control:focus {
+	  border-color: #000000;
+	  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.6);
+	}
+	.btn{
+		    background-color: #1A1A1A !important;
+		    font-size: small;
 
- -->
-<!-- ################################################################################################# -->
-<!DOCTYPE html>
-<html>
-<head>
-	<title>ODFinder</title>
-</head>
-<body>
+	}
+	.dropdown-item{
+		font-size: small;
+    }
+    a, a:hover{
+        color: #1A1A1A;
+    }
+    .share{
+    	font-size: xx-small;
+    }
+    #shareicons, #shareiconssmall{
+    	position: absolute;
+		bottom: 0;
+		padding-bottom: 20px;
+    }
+	@media only screen and (max-width: 767px) {
+        	 h1{
+                font-size: x-large;
+             }
+             h1:hover{ cursor: none; }
+             #radio{
+                font-size: xx-small;
+
+             }
+             .dropdown-item{
+                font-size: xx-small;
+
+            }
+            .btn{
+                    font-size: xx-small;
+
+            }
+    	}
 
 
-<!-- Radio buttons to choose between loose of strict search -->
-<div >
-	<input id="radio" type="radio" name="Search" value="Loose" checked="checked"> Loose Search
-    <input id="radio" type="radio" name="Search" value="Strict"> Strict Search
+    @media screen and (max-width: 736px) {
+
+        .form-control{
+        	font-size: x-small;
+        	padding-left: 4px;
+        	padding-right: 2px;
+        }
+        .btn-secondary{
+        	font-size: xx-small;
+        	padding-left: 4px;
+        	padding-right: 2px;	
+        }
+        .container{
+        	padding: 0px;
+        }
+        #radio{
+        	font-size: xx-small;
+        }
+        #shareicons{
+        	display: none;
+        }
+        #shareiconssmall{
+        	display:block;
+        }
+    }
+	@media screen and (min-width: 736px) {
+	     #shareiconssmall{
+        	display:none;
+        }
+       }   
+</style>
+  </head>
+  <body class="body">
+    <h1>OD Finder</h1>
+
+<!-- Component Main : Dropdown, Inputbox, and go button -->
+<div class="container">
+<div class="input-group ">
+ <!--  -->
+ <div class="input-group-btn">
+         <button id="dropdown" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Video
+         </button>
+         <div id="format" class="dropdown-menu">
+           <a class="dropdown-item" href="#">Video</a>
+           <a class="dropdown-item" href="#">Video 4K</a>
+           <a class="dropdown-item" href="#">Video 3D</a>
+           <div role="separator" class="dropdown-divider"></div>
+           <a class="dropdown-item" href="#">Text</a>
+   		   <a class="dropdown-item" href="#">Comics</a>
+           <div role="separator" class="dropdown-divider"></div>
+           <a class="dropdown-item" href="#">Audio</a>
+           <a class="dropdown-item" href="#">Pictures</a>
+
+           <a class="dropdown-item" href="#">Software/Games</a>
+           <a class="dropdown-item" href="#">Compressed</a>
+         </div>
+ </div>
+  <input id="maininput" type="text" class="form-control" autofocus placeholder="Search for...">
+  <span class="input-group-btn">
+          <button id="go" class="btn btn-secondary" type="button">Go!</button>
+        </span>
 </div>
 
 
-<!-- File type select dropdown -->
-<div id="main">
-	<select id="format">
-		<option value="Video">Video</option>
-		<option value="VideoHD">Video HD</option>
-		<option value="Video3D">Video 3D</option>
 
-		<option value="Audio">Audio</option>
-		<option value="Image">Image</option>
-		<option value="Softwares">Softwares|Games</option>
-		<option value="Text">Text</option>
-		<option value="Compressed">Compressed</option>
+<!-- Radio Buttons -->
+<div id="radio" class="container">
 
-	</select>
-	<input id="input" type="text" name="input">
-	<button id="go">Go</button>
+<table class="table">
+  <tbody>
+    <tr>
+    	<div class="input-group radio">
+    		
+      <td align="right"><input id="radio1" type="radio" name="Search" value="Loose" checked="checked"> <span data-labelfor="radio1"><a href="#"> Loose Search</a></span></td>
+    	</div>
+    	<div class="input-group">
+    		
+      <td align="left"><input id="radio2" type="radio" name="Search" value="Strict"> <span data-labelfor="radio2"><a href="#">Strict search</a> </span></td>
+    	</div>
+    </tr>
+  </tbody>
+</table>
+	
 </div>
 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    
 
 
-<!-- JQuery  -->
-<script
-  src="http://code.jquery.com/jquery-3.2.1.slim.min.js"
-  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-  crossorigin="anonymous">
-</script>
+    <script type="text/javascript">
+
+// This function binds enter key with go buttoon
+        $( document ).ready(function() {
+            $('body').keypress(function(e) {
+                if (e.which == 13) {
+                  $("#go").trigger('click');
+                }
+              });
+
+// This function minifies the names of selected file format
+    		$( ".dropdown-item" ).click(function() {
+    			var format = $(this).text();
+
+    			switch(format){
+    				case "Video":{
+    					format = "Video";
+    					break;
+    				}
+    				case "Video 4K":{
+    					format = "Vid 4K";
+    					break;
+    				}
+    				case "Video 3D":{
+    					format = "Vid 3D";
+    					break;
+    				}
+    				case "Audio":{
+    					format = "Audio";
+    					break;
+    				}
+    				case "Pictures":{
+    					format = "Pics";
+    					break;
+    				}
+    				case "Text":{
+    					format = "Text";
+    					break;
+    				}
+    				case "Comics":{
+    					format = "Comics";
+    					break;
+    				}
+    				case "Software/Games":{
+    					format = "Soft";
+    					break;
+    				}
+    				case "Compressed":{
+    					format = "Compr";
+    					break;
+    				}
+    			}
+
+    			// alert(format);
+    			$("#dropdown").text(format);
+    		});
+
+// This function assigns label to the dropdown list
+            $("[data-labelfor]").click(function() {
+                $('#' + $(this).attr("data-labelfor")).prop('checked',
+                                 function(i, oldVal) { return !oldVal; });
+            });
 
 
 
-<!-- Main Script -->
-<script type="text/javascript">
+// This is the main function
 
-	$(document).ready(function(){
-	  $('#go').click(function(){                // on click go button
-	     var query = $('#input').val();			//
-	     query = $.trim(query);					//    Filter
-	     query = query.replace(/  +/g, ' ');	//	   the
-	     query = query.replace(' ','.');		//	  input
-
-	     var search = $('input[name=Search]:checked').val(); // value from the radio 
-	     var format = $("#format").val();                    // file format
-	     var extensions = ''
+    		$( "#go" ).click(function() {
+    			var query = $('#maininput').val();
+    			query = $.trim(query);					
+    			query = query.replace(/  +/g, ' ');	
+    			guery = query.split(' ').join('-');
+    			query = query.split(' ').join('.');		
+    			var format = $('#dropdown').text();
+    			var search = $('input[name=Search]:checked').val(); 
 
 
-	     switch(format){
+    			     switch(format){                                 //switching between file formats
+    			       case("Video"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+    			       	else{
+    			       		query = "intext:movie";
+    			       	}
+    			         var extensions=" (avi|mkv|.mov|mp4|mpg|wmv|flv) "; 
+    			         break;
+    			       }
 
-	     	// if the file format is video
-	       case("Video"):{
-	       	if(query != ''){	
-	       		if(search == 'Strict'){
-	       	 		query = "intext:\""+query+"\"";
-	       		}
-	       		else{
-	       			query = "intext:"+query;
-	       		}
-	       	}
-	         var extensions=" (avi|mkv|mov|mp4|mpg|wmv|flv) ";  //extensions for a video file
-	         break;
-	       }
+    			       
+    			       case("Vid 4K"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       			query = "intext:\""+query+".4k\"";
+    			       		}
+    			       		else{
+    			       	 		query = "intext:"+query+".4k";
+    			       	
+    			       		}
+    			       	}
+    			       	else{
+    			       		query = "intext:movies";
+    			       	}
+    			         var extensions=" (avi|mkv|mp4) "; 
+    			         break;
+    			       }
 
-	       // if the file format is video and is HD
-	       case("VideoHD"):{
-	       	if(query != ''){	
-	       		if(search == 'Strict'){
-	       			query = "intext:\""+query+".1080p\"";
-	       		}
-	       		else{
-	       	 		query = "intext:"+query+".1080p";
-	       	
-	       		}
-	       	}
-	         var extensions=" (avi|mkv|mp4) "; //extensions for a video file. Reduced as most HD videos come in these formats
-	         break;
-	       }
+    			       
+    			       case("Vid 3D"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       			query = "intext:\""+query+".sbs\"";
+    			       		}
+    			       		else{
+    			       	 		query = "intext:"+query+".sbs";
+    			       		}
+    			       	}
+    			       	else{
+    			       		query = "intext:sbs";
+    			       	}
+    			         var extensions=" (avi|mkv|mp4) "; 
+    			         break;
+    			       }
 
-	       // if the file format is video and is 3d
-	       case("Video3D"):{
-	       	if(query != ''){	
-	       		if(search == 'Strict'){
-	       			query = "intext:\""+query+".sbs\"";
-	       		}
-	       		else{
-	       	 		query = "intext:"+query+".sbs";
-	       		}
-	       	}
-	         var extensions=" (avi|mkv|mp4) "; //extensions for a video file. Reduced as most 3D side by side videos come in these formats
-	         break;
-	       }
-
-	       // if the file format is audio
-	       case("Audio"):{
-	       	if(query != ''){	
+    			       
+    			       case("Audio"):{
+    			       	if(query != ''){	
 	       		       		if(search == 'Strict'){
 	       		       	 		query = "intext:\""+query+"\"";
 	       		       		}
@@ -120,94 +309,133 @@
 	       		       			query = "intext:"+query;
 	       		       		}
 	       		       	}
-	         var extensions=" (mp3|ac3|flac|m4a|wav|wma) "; //extensions for a audio file. 
-	         break;
-	       }
+    			       	else{
+    			       		query = "intext:music";
+    			       	}
+    			         var extensions=" (mp3|ac3|flac|m4a|wav|wma) ";
+    			         break;
+    			       }
 
-	       // if the file format is Image
-	       case("Image"):{
-	       	if(query != ''){	
-	       		if(search == 'Strict'){
-	       	 		query = "intext:\""+query+"\"";
-	       		}
-	       		else{
-	       			query = "intext:"+query;
-	       		}
-	       	}
-	         var extensions=" (jpg|png|gif|jpeg|psd|bmp|tif|tiff) "; //extensions for an image 
-	         break;
-	       }
+    			       
+    			       case("Pics"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+    			       	else{
+    			       		query = "intext:image";
+    			       	}
+    			         var extensions=" (jpg|png|gif|jpeg|psd|bmp|tif|tiff) ";
+    			         break;
+    			       }
 
-	       // if the file format is Text
-	       case("Text"):{
-	       	if(query != ''){	
-	       		if(search == 'Strict'){
-	       	 		query = "intext:\""+query+"\"";
-	       		}
-	       		else{
-	       			query = "intext:"+query;
-	       		}
-	       	}
-	         var extensions=" (CBZ|CBR|CHM|DOC|DOCX|EPUB|MOBI|ODT|PDF|RTF|txt) "; //extensions for a text file
-	         break;
-	       }
+    			      
+    			       case("Text"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+    			       	else{
+    			       		query = "intext:book";
+    			       	}
+    			         var extensions=" (CHM|DOC|DOCX|EPUB|MOBI|ODT|PDF|RTF|txt) "; 
+    			         break;
+    			       }
 
-	       // if the file format is Software
-	       case("Software"):{
-	       	if(query != ''){	
-	       		if(search == 'Strict'){
-	       	 		query = "intext:\""+query+"\"";
-	       		}
-	       		else{
-	       			query = "intext:"+query;
-	       		}
-	       	}
-	         var extensions=" (apk|exe|iso|rar|tar|zip|deb|msi) "; //extensions for a game or software
-	         break;
-	       }
-
-
-	       // if the file format is compressed
-	       case("Compressed"):{
-	       	if(query != ''){	
-	       		if(search == 'Strict'){
-	       	 		query = "intext:\""+query+"\"";
-	       		}
-	       		else{
-	       			query = "intext:"+query;
-	       		}
-	       	}
-	         var extensions=" (7z|bz2|gz|iso|rar|zip|tar) "; //extensions for an archive file
-	         break;
-	       }
+    			       case("Comics"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+    			       	else{
+    			       		query = "intext:comic";
+    			       	}
+    			         var extensions=" (CBZ|CB7|CBA|CBT|CBR|CHM|EPUB|MOBI|PDF) "; 
+    			         break;
+    			       }
 
 
-	       // Default case (Redundant (can be removed))
-	       default:{
-	       	if(query != ''){	
-	       		if(search == 'Strict'){
-	       	 		query = "intext:\""+query+"\"";
-	       		}
-	       		else{
-	       			query = "intext:"+query;
-	       		}
-	       	}
-	         var extensions=" (avi|mkv|mov|mp4|mpg|wmv|flv) "; //extensions for a video file
-	         break;
-	       }
-	     }
+    			      
+    			       case("Soft"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+    			       	else{
+    			       		query = "intext:software";
+    			       	}
+    			         var extensions=" (apk|exe|iso|rar|tar|zip|deb|msi) ";
+    			         break;
+    			       }
 
-		     var commonToAll=" intitle:\"index.of./\" -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml|py) -inurl:(index_of|wp-content|listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis) ";          // Commmon string to all queries
 
-	         var finalquery=query+extensions+commonToAll;
-	         finalquery = $.trim(finalquery)
-	         var url="https://www.google.com/search?q="+encodeURIComponent(finalquery);                 // The final url whiich will find open directories
-	         window.open(url,'_blank');                                                                 // This statement will open url in new tab
+    			      
+    			       case("Compr"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+    			       	else{
+    			       		query = "pc games";
+    			       	}
+    			         var extensions=" (7z|bz2|gz|iso|rar|zip|tar|ova) "; 
+    			         break;
+    			       }
 
-	  });
-	});
-</script>
 
-</body>
+    			       
+    			       default:{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+
+    			       	else{
+    			       		query = "intext:movie";
+    			       	}
+    			         var extensions=" (avi|mkv|.mov|mp4|mpg|wmv|flv) "; 
+    			         break;
+    			       }
+    			     }
+
+    				     var commonToAll=" intitle:\"index.of./\" -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml|py) -inurl:(index_of|index.of|listen77|mp3raid|mp3toss|mp3drug|unknownsecret|sirens|wallywashis) ";  //Common string to all queries
+
+    			         var finalquery=query+extensions+commonToAll; // the final query
+    			         finalquery = $.trim(finalquery)
+    			         var url="https://www.google.com/search?q="+encodeURIComponent(finalquery);                  
+    			         window.open(url,'_blank');                           //This will open in new tab                
+
+    		});
+
+    	});
+    </script>
+
+
+
+  </body>
 </html>
 
