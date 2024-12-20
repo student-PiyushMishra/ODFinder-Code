@@ -1,441 +1,362 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Open Directory Finder</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
- 
-    <title>OD Finder</title>
- 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
- 
 
-<style type="text/css">
-	body{
-        font-family: 'Press Start 2P', cursive;
-        background-color: rgba(99, 99, 99, 0.1);
-		color: #1A1A1A;
-        
-	}
-    h1{
-        font-size: 4vw;
-        text-align: center;
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-    #radio{
-        padding-top: 40px;
-        margin:0 auto;
-        text-align:center;
-        font-size: small;
-    }
-	.form-control:focus {
-	  border-color: #000000;
-	  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.6);
-	}
-	.btn{
-		    background-color: #1A1A1A !important;
-		    font-size: small;
-
-	}
-	.dropdown-item{
-		font-size: small;
-    }
-    a, a:hover{
-        color: #1A1A1A;
-    }
-    .share{
-    	font-size: xx-small;
-    }
-    #shareicons, #shareiconssmall{
-    	position: absolute;
-		bottom: 0;
-		padding-bottom: 20px;
-    }
-	@media only screen and (max-width: 767px) {
-        	 h1{
-                font-size: x-large;
-             }
-             h1:hover{ cursor: none; }
-             #radio{
-                font-size: xx-small;
-
-             }
-             .dropdown-item{
-                font-size: xx-small;
-
-            }
-            .btn{
-                    font-size: xx-small;
-
-            }
-    	}
+<head>
+	<title>Open Directory Finder</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    @media screen and (max-width: 736px) {
+	<title>OD Finder</title>
 
-        .form-control{
-        	font-size: x-small;
-        	padding-left: 4px;
-        	padding-right: 2px;
-        }
-        .btn-secondary{
-        	font-size: xx-small;
-        	padding-left: 4px;
-        	padding-right: 2px;	
-        }
-        .container{
-        	padding: 0px;
-        }
-        #radio{
-        	font-size: xx-small;
-        }
-        #shareicons{
-        	display: none;
-        }
-        #shareiconssmall{
-        	display:block;
-        }
-    }
-	@media screen and (min-width: 736px) {
-	     #shareiconssmall{
-        	display:none;
-        }
-       }   
-</style>
-  </head>
-  <body class="body">
-    <h1>OD Finder</h1>
-
-<!-- Component Main : Dropdown, Inputbox, and go button -->
-<div class="container">
-<div class="input-group ">
- <!--  -->
- <div class="input-group-btn">
-         <button id="dropdown" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           Video
-         </button>
-         <div id="format" class="dropdown-menu">
-           <a class="dropdown-item" href="#">Video</a>
-           <a class="dropdown-item" href="#">Video 4K</a>
-           <a class="dropdown-item" href="#">Video 3D</a>
-           <div role="separator" class="dropdown-divider"></div>
-           <a class="dropdown-item" href="#">Text</a>
-   		   <a class="dropdown-item" href="#">Comics</a>
-           <div role="separator" class="dropdown-divider"></div>
-           <a class="dropdown-item" href="#">Audio</a>
-           <a class="dropdown-item" href="#">Pictures</a>
-
-           <a class="dropdown-item" href="#">Software/Games</a>
-           <a class="dropdown-item" href="#">Compressed</a>
-         </div>
- </div>
-  <input id="maininput" type="text" class="form-control" autofocus placeholder="Search for...">
-  <span class="input-group-btn">
-          <button id="go" class="btn btn-secondary" type="button">Go!</button>
-        </span>
-</div>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+		integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
 
+	<style type="text/css">
+		body {
+			font-family: 'Press Start 2P', cursive;
+			background-color: rgba(99, 99, 99, 0.1);
+			color: #1A1A1A;
 
-<!-- Radio Buttons -->
-<div id="radio" class="container">
+		}
 
-<table class="table">
-  <tbody>
-    <tr>
-    	<div class="input-group radio">
-    		
-      <td align="right"><input id="radio1" type="radio" name="Search" value="Loose" checked="checked"> <span data-labelfor="radio1"><a href="#"> Loose Search</a></span></td>
-    	</div>
-    	<div class="input-group">
-    		
-      <td align="left"><input id="radio2" type="radio" name="Search" value="Strict"> <span data-labelfor="radio2"><a href="#">Strict search</a> </span></td>
-    	</div>
-    </tr>
-  </tbody>
-</table>
-	
-</div>
+		h1 {
+			font-size: 4vw;
+			text-align: center;
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    
+		#radio {
+			padding-top: 40px;
+			margin: 0 auto;
+			text-align: center;
+			font-size: small;
+		}
+
+		.form-control:focus {
+			border-color: #000000;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.6);
+		}
+
+		.btn {
+			background-color: #1A1A1A !important;
+			font-size: small;
+
+		}
+
+		.dropdown-item {
+			font-size: small;
+		}
+
+		a,
+		a:hover {
+			color: #1A1A1A;
+		}
+
+		.share {
+			font-size: xx-small;
+		}
+
+		#shareicons,
+		#shareiconssmall {
+			position: absolute;
+			bottom: 0;
+			padding-bottom: 20px;
+		}
+
+		@media only screen and (max-width: 767px) {
+			h1 {
+				font-size: x-large;
+			}
+
+			h1:hover {
+				cursor: none;
+			}
+
+			#radio {
+				font-size: xx-small;
+
+			}
+
+			.dropdown-item {
+				font-size: xx-small;
+
+			}
+
+			.btn {
+				font-size: xx-small;
+
+			}
+		}
 
 
-    <script type="text/javascript">
+		@media screen and (max-width: 736px) {
 
-// This function binds enter key with go buttoon
-        $( document ).ready(function() {
-            $('body').keypress(function(e) {
-                if (e.which == 13) {
-                  $("#go").trigger('click');
-                }
-              });
+			.form-control {
+				font-size: x-small;
+				padding-left: 4px;
+				padding-right: 2px;
+			}
 
-// This function minifies the names of selected file format
-    		$( ".dropdown-item" ).click(function() {
-    			var format = $(this).text();
+			.btn-secondary {
+				font-size: xx-small;
+				padding-left: 4px;
+				padding-right: 2px;
+			}
 
-    			switch(format){
-    				case "Video":{
-    					format = "Video";
-    					break;
-    				}
-    				case "Video 4K":{
-    					format = "Vid 4K";
-    					break;
-    				}
-    				case "Video 3D":{
-    					format = "Vid 3D";
-    					break;
-    				}
-    				case "Audio":{
-    					format = "Audio";
-    					break;
-    				}
-    				case "Pictures":{
-    					format = "Pics";
-    					break;
-    				}
-    				case "Text":{
-    					format = "Text";
-    					break;
-    				}
-    				case "Comics":{
-    					format = "Comics";
-    					break;
-    				}
-    				case "Software/Games":{
-    					format = "Soft";
-    					break;
-    				}
-    				case "Compressed":{
-    					format = "Compr";
-    					break;
-    				}
-    			}
+			.container {
+				padding: 0px;
+			}
 
-    			// alert(format);
-    			$("#dropdown").text(format);
-    		});
+			#radio {
+				font-size: xx-small;
+			}
 
-// This function assigns label to the dropdown list
-            $("[data-labelfor]").click(function() {
-                $('#' + $(this).attr("data-labelfor")).prop('checked',
-                                 function(i, oldVal) { return !oldVal; });
-            });
+			#shareicons {
+				display: none;
+			}
+
+			#shareiconssmall {
+				display: block;
+			}
+		}
+
+		@media screen and (min-width: 736px) {
+			#shareiconssmall {
+				display: none;
+			}
+		}
+	</style>
+</head>
+
+<body class="body">
+	<h1>OD Finder</h1>
+
+	<!-- Component Main : Dropdown, Inputbox, and go button -->
+	<div class="container">
+		<div class="input-group ">
+			<!--  -->
+			<div class="input-group-btn">
+				<button id="dropdown" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+					Video
+				</button>
+				<div id="format" class="dropdown-menu">
+					<a class="dropdown-item" href="#">Video</a>
+					<a class="dropdown-item" href="#">Video 4K</a>
+					<a class="dropdown-item" href="#">Video 3D</a>
+					<div role="separator" class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Text</a>
+					<a class="dropdown-item" href="#">Comics</a>
+					<div role="separator" class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Audio</a>
+					<a class="dropdown-item" href="#">Pictures</a>
+
+					<a class="dropdown-item" href="#">Software/Games</a>
+					<a class="dropdown-item" href="#">Compressed</a>
+				</div>
+			</div>
+			<input id="maininput" type="text" class="form-control" autofocus placeholder="Search for...">
+			<span class="input-group-btn">
+				<button id="go" class="btn btn-secondary" type="button">Go!</button>
+			</span>
+		</div>
 
 
 
-// This is the main function
+		<!-- Radio Buttons -->
+		<div id="radio" class="container">
 
-    		$( "#go" ).click(function() {
-    			var query = $('#maininput').val();
-    			query = $.trim(query);					
-    			query = query.replace(/  +/g, ' ');	
-    			guery = query.split(' ').join('-');
-    			query = query.split(' ').join('.');		
-    			var format = $('#dropdown').text();
-    			var search = $('input[name=Search]:checked').val(); 
+			<table class="table">
+				<tbody>
+					<tr>
+						<div class="input-group radio">
 
+							<td align="right"><input id="radio1" type="radio" name="Search" value="Loose"
+									checked="checked"> <span data-labelfor="radio1"><a href="#"> Loose Search</a></span>
+							</td>
+						</div>
+						<div class="input-group">
 
-    			     switch(format){                                 //switching between file formats
-    			       case("Video"):{
-    			       	if(query != ''){	
-    			       		if(search == 'Strict'){
-    			       	 		query = "intext:\""+query+"\"";
-    			       		}
-    			       		else{
-    			       			query = "intext:"+query;
-    			       		}
-    			       	}
-    			       	else{
-    			       		query = "intext:movie";
-    			       	}
-    			         var extensions=" (avi|mkv|.mov|mp4|mpg|wmv|flv) "; 
-    			         break;
-    			       }
+							<td align="left"><input id="radio2" type="radio" name="Search" value="Strict"> <span
+									data-labelfor="radio2"><a href="#">Strict search</a> </span></td>
+						</div>
+					</tr>
+				</tbody>
+			</table>
 
-    			       
-    			       case("Vid 4K"):{
-    			       	if(query != ''){	
-    			       		if(search == 'Strict'){
-    			       			query = "intext:\""+query+".4k\"";
-    			       		}
-    			       		else{
-    			       	 		query = "intext:"+query+".4k";
-    			       	
-    			       		}
-    			       	}
-    			       	else{
-    			       		query = "intext:movies";
-    			       	}
-    			         var extensions=" (avi|mkv|mp4) "; 
-    			         break;
-    			       }
-
-    			       
-    			       case("Vid 3D"):{
-    			       	if(query != ''){	
-    			       		if(search == 'Strict'){
-    			       			query = "intext:\""+query+".sbs\"";
-    			       		}
-    			       		else{
-    			       	 		query = "intext:"+query+".sbs";
-    			       		}
-    			       	}
-    			       	else{
-    			       		query = "intext:sbs";
-    			       	}
-    			         var extensions=" (avi|mkv|mp4) "; 
-    			         break;
-    			       }
-
-    			       
-    			       case("Audio"):{
-    			       	if(query != ''){	
-	       		       		if(search == 'Strict'){
-	       		       	 		query = "intext:\""+query+"\"";
-	       		       		}
-	       		       		else{
-	       		       			query = "intext:"+query;
-	       		       		}
-	       		       	}
-    			       	else{
-    			       		query = "intext:music";
-    			       	}
-    			         var extensions=" (mp3|ac3|flac|m4a|wav|wma) ";
-    			         break;
-    			       }
-
-    			       
-    			       case("Pics"):{
-    			       	if(query != ''){	
-    			       		if(search == 'Strict'){
-    			       	 		query = "intext:\""+query+"\"";
-    			       		}
-    			       		else{
-    			       			query = "intext:"+query;
-    			       		}
-    			       	}
-    			       	else{
-    			       		query = "intext:image";
-    			       	}
-    			         var extensions=" (jpg|png|gif|jpeg|psd|bmp|tif|tiff) ";
-    			         break;
-    			       }
-
-    			      
-    			       case("Text"):{
-    			       	if(query != ''){	
-    			       		if(search == 'Strict'){
-    			       	 		query = "intext:\""+query+"\"";
-    			       		}
-    			       		else{
-    			       			query = "intext:"+query;
-    			       		}
-    			       	}
-    			       	else{
-    			       		query = "intext:book";
-    			       	}
-    			         var extensions=" (CHM|DOC|DOCX|EPUB|MOBI|ODT|PDF|RTF|txt) "; 
-    			         break;
-    			       }
-
-    			       case("Comics"):{
-    			       	if(query != ''){	
-    			       		if(search == 'Strict'){
-    			       	 		query = "intext:\""+query+"\"";
-    			       		}
-    			       		else{
-    			       			query = "intext:"+query;
-    			       		}
-    			       	}
-    			       	else{
-    			       		query = "intext:comic";
-    			       	}
-    			         var extensions=" (CBZ|CB7|CBA|CBT|CBR|CHM|EPUB|MOBI|PDF) "; 
-    			         break;
-    			       }
-
-
-    			      
-    			       case("Soft"):{
-    			       	if(query != ''){	
-    			       		if(search == 'Strict'){
-    			       	 		query = "intext:\""+query+"\"";
-    			       		}
-    			       		else{
-    			       			query = "intext:"+query;
-    			       		}
-    			       	}
-    			       	else{
-    			       		query = "intext:software";
-    			       	}
-    			         var extensions=" (apk|exe|iso|rar|tar|zip|deb|msi) ";
-    			         break;
-    			       }
-
-
-    			      
-    			       case("Compr"):{
-    			       	if(query != ''){	
-    			       		if(search == 'Strict'){
-    			       	 		query = "intext:\""+query+"\"";
-    			       		}
-    			       		else{
-    			       			query = "intext:"+query;
-    			       		}
-    			       	}
-    			       	else{
-    			       		query = "pc games";
-    			       	}
-    			         var extensions=" (7z|bz2|gz|iso|rar|zip|tar|ova) "; 
-    			         break;
-    			       }
-
-
-    			       
-    			       default:{
-    			       	if(query != ''){	
-    			       		if(search == 'Strict'){
-    			       	 		query = "intext:\""+query+"\"";
-    			       		}
-    			       		else{
-    			       			query = "intext:"+query;
-    			       		}
-    			       	}
-
-    			       	else{
-    			       		query = "intext:movie";
-    			       	}
-    			         var extensions=" (avi|mkv|.mov|mp4|mpg|wmv|flv) "; 
-    			         break;
-    			       }
-    			     }
-
-    				     var commonToAll=" intitle:\"index.of./\" -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml|py) -inurl:(index_of|index.of|listen77|mp3raid|mp3toss|mp3drug|unknownsecret|sirens|wallywashis) ";  //Common string to all queries
-
-    			         var finalquery=query+extensions+commonToAll; // the final query
-    			         finalquery = $.trim(finalquery)
-    			         var url="https://www.google.com/search?q="+encodeURIComponent(finalquery);                  
-    			         window.open(url,'_blank');                           //This will open in new tab                
-
-    		});
-
-    	});
-    </script>
+		</div>
+		<script src="https://use.fontawesome.com/3766e0a0e0.js"></script>
+		<div class="container" align="center" id="shareicons"><a
+				href="https://www.facebook.com/sharer/sharer.php?u=https%3A//odfinder.github.io/"><i
+					class="fa fa-3x fa-facebook" aria-hidden="true"></i></a>
+			<a
+				href="https://twitter.com/home?status=Find%20almost%20anything%20using%20Open%20Directory%20Finder.%0AVisit%20https%3A//odfinder.github.io/"><i
+					class="fa fa-3x fa-twitter" aria-hidden="true"></i></a>
+			<a href="https://reddit.com/submit?url=https://odfinder.github.io/&amp;title=Open%20Directory%20Finder"><i
+					class="fa fa-3x fa-reddit-alien" aria-hidden="true"></i></a>
+			<a href="https://plus.google.com/share?url=https%3A//odfinder.github.io"><i class="fa fa-3x fa-google-plus"
+					aria-hidden="true"></i></a>
+			<a
+				href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//odfinder.github.io&amp;title=Open%20Directory%20finder&amp;summary=Find%20almost%20anythhing%20on%20the%20web%20using%20Open%20Directory%20Finder&amp;source="><i
+					class="fa fa-3x fa-linkedin" aria-hidden="true"></i></a>
+			<a
+				href="https://pinterest.com/pin/create/button/?url=https%3A//odfinder.github.io/odf.jpg&amp;media=Open%20Directory%20finder&amp;description=Find%20images%20or%20almost%20anything%20using%20Open%20Directory%20Finder.%0AVisit%20%3A%20https%3A//odfinder.github.io"><i
+					class="fa fa-3x fa-pinterest-p" aria-hidden="true"></i></a>
+			<a href="http://digg.com/submit?url=https://odfinder.github.io/&amp;title=Open%20Directory%20Finder"><i
+					class="fa fa-3x fa-digg" aria-hidden="true"></i></a>
+			<a
+				href="https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://odfinder.github.io/&amp;title=Open%20Directory%20Finder&amp;caption=Find%20almost%20anything%20using%20Open%20Directory%20Finder."><i
+					class="fa fa-3x fa-tumblr" aria-hidden="true"></i></a>
+			<a
+				href="http://www.stumbleupon.com/submit?url=https://odfinder.github.io/&amp;title=Open%20Directory%20Finder"><i
+					class="fa fa-3x fa-stumbleupon" aria-hidden="true"></i></a>
+			<a href="https://telegram.me/share/url?url=https://odfinder.github.io/&amp;text=Open%20Directory%20Finder"><i
+					class="fa fa-3x fa-telegram" aria-hidden="true"></i></a>
+		</div>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+			integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+			crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+			integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+			crossorigin="anonymous"></script>
 
 
 
-  </body>
+		<script type="text/javascript">
+			// Vanilla JavaScript replacement for jQuery functions
+			document.addEventListener("DOMContentLoaded", function () {
+				// Bind Enter key with the 'go' button
+				document.body.addEventListener("keypress", function (e) {
+					if (e.key === "Enter") {
+						document.getElementById("go").click();
+					}
+				});
+
+				// Minify the names of selected file format
+				document.querySelectorAll(".dropdown-item").forEach(function (item) {
+					item.addEventListener("click", function () {
+						let format = this.textContent.trim();
+
+						switch (format) {
+							case "Video":
+								format = "Video";
+								break;
+							case "Video 4K":
+								format = "Vid 4K";
+								break;
+							case "Video 3D":
+								format = "Vid 3D";
+								break;
+							case "Audio":
+								format = "Audio";
+								break;
+							case "Pictures":
+								format = "Pics";
+								break;
+							case "Text":
+								format = "Text";
+								break;
+							case "Comics":
+								format = "Comics";
+								break;
+							case "Software/Games":
+								format = "Soft";
+								break;
+							case "Compressed":
+								format = "Compr";
+								break;
+						}
+
+						document.getElementById("dropdown").textContent = format;
+					});
+				});
+
+				// Assign label to the dropdown list
+				document.querySelectorAll("[data-labelfor]").forEach(function (item) {
+					item.addEventListener("click", function () {
+						const checkbox = document.getElementById(this.getAttribute("data-labelfor"));
+						checkbox.checked = !checkbox.checked;
+					});
+				});
+
+				// Main function
+				document.getElementById("go").addEventListener("click", function () {
+					let query = document.getElementById("maininput").value.trim();
+					query = query.replace(/ {2,}/g, " ").replace(/\s+/g, "-");
+					const format = document.getElementById("dropdown").textContent.trim();
+					const search = document.querySelector('input[name="Search"]:checked').value;
+
+					let extensions;
+					switch (format) {
+						case "Video":
+							extensions = " (avi|mkv|.mov|mp4|mpg|wmv|flv) ";
+							query = query ? (search === "Strict" ? `intext:"${query}"` : `intext:${query}`) : "intext:movie";
+							break;
+
+						case "Vid 4K":
+							extensions = " (avi|mkv|mp4) ";
+							query = query ? (search === "Strict" ? `intext:"${query}.4k"` : `intext:${query}.4k`) : "intext:movies";
+							break;
+
+						case "Vid 3D":
+							extensions = " (avi|mkv|mp4) ";
+							query = query ? (search === "Strict" ? `intext:"${query}.sbs"` : `intext:${query}.sbs`) : "intext:sbs";
+							break;
+
+						case "Audio":
+							extensions = " (mp3|ac3|flac|m4a|wav|wma) ";
+							query = query ? (search === "Strict" ? `intext:"${query}"` : `intext:${query}`) : "intext:music";
+							break;
+
+						case "Pics":
+							extensions = " (jpg|png|gif|jpeg|psd|bmp|tif|tiff) ";
+							query = query ? (search === "Strict" ? `intext:"${query}"` : `intext:${query}`) : "intext:image";
+							break;
+
+						case "Text":
+							extensions = " (CHM|DOC|DOCX|EPUB|MOBI|ODT|PDF|RTF|txt) ";
+							query = query ? (search === "Strict" ? `intext:"${query}"` : `intext:${query}`) : "intext:book";
+							break;
+
+						case "Comics":
+							extensions = " (CBZ|CB7|CBA|CBT|CBR|CHM|EPUB|MOBI|PDF) ";
+							query = query ? (search === "Strict" ? `intext:"${query}"` : `intext:${query}`) : "intext:comic";
+							break;
+
+						case "Soft":
+							extensions = " (apk|exe|iso|rar|tar|zip|deb|msi) ";
+							query = query ? (search === "Strict" ? `intext:"${query}"` : `intext:${query}`) : "intext:software";
+							break;
+
+						case "Compr":
+							extensions = " (7z|bz2|gz|iso|rar|zip|tar|ova) ";
+							query = query ? (search === "Strict" ? `intext:"${query}"` : `intext:${query}`) : "pc games";
+							break;
+
+						default:
+							extensions = " (avi|mkv|.mov|mp4|mpg|wmv|flv) ";
+							query = query ? (search === "Strict" ? `intext:"${query}"` : `intext:${query}`) : "intext:movie";
+					}
+
+					const commonToAll =
+						' intitle:"index.of./" -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml|py) -inurl:(index_of|index.of|listen77|mp3raid|mp3toss|mp3drug|unknownsecret|emptysite|hemsida)';
+
+					// Combine the query with the extensions and common filter
+					const finalQuery = `${query} ${extensions} ${commonToAll}`;
+					window.open(`https://www.google.com/search?q=${encodeURIComponent(finalQuery)}`, "_blank");
+
+				});
+			});
+		</script>
+</body>
+
 </html>
-
